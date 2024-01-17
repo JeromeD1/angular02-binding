@@ -1,0 +1,32 @@
+<main>
+    <section>
+
+        <img [src] = "user.photo" [alt] = "user.firstName" [title] =  "user.firstName + ' ' + user.name">
+        <h1 *ngIf = "nameDisplay" >{{user.firstName}} {{user.name}} </h1>
+        <p [class]="classVisibility">Age : {{user.age}} years old </p>
+        <p>{{user.quote}} </p>
+        
+        <label for="myQuote">Edit the quote</label>
+        <input id="myQuote" [(ngModel)] = "user.quote" placeholder="Type your quote">
+        
+        <button (click) = "changeClassVisibility()" >Show / hide my age</button>
+        <button (click) = "changeNameDisplay()" >Show / hide my name</button>
+    </section>
+
+    <section>
+
+        <img [src] = "user2.getPhoto()" [alt] = "user2.getFirstName()" [title] =  "user2.getFirstName() + ' ' + user2.getName()">
+        <h1 *ngIf = "nameDisplay" >{{user2.getFirstName()}} {{user2.getName()}} </h1>
+        <p [class]="classVisibility">Age : {{user2.getAge()}} years old </p>
+        <p>{{user2.getQuote()}} </p>
+        
+        <label for="myQuote2">Edit the quote</label>
+        <!-- <input id="myQuote2" [value] = "user2.getQuote()" (input) = "user2.setQuote($event.target.value)" placeholder="Type your quote"> -->
+        <input id="myQuote2" [(ngModel)] = "user2.quote" placeholder="Type your quote">
+
+        <button (click) = "changeClassVisibility()" >Show / hide my age</button>
+        <button (click) = "changeNameDisplay()" >Show / hide my name</button>
+    </section>
+
+
+</main>
